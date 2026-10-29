@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
+import { putMedia } from '../storage.js'
 
 export function Counter({ value, limit }) {
   const len = value.length
@@ -76,7 +77,9 @@ export function MediaField({ label, hint, value, onChange, accept = 'image/*' })
     const file = e.target.files?.[0]
     if (!file) return
     if (value?.url) URL.revokeObjectURL(value.url)
-    onChange({ url: URL.createObjectURL(file), type: file.type.startsWith('video') ? 'video' : 'image', name: file.name })
+    const id = crypto.randomUUID()
+    putMedia(id, file)
+    onChange({ id, url: URL.createObjectURL(file), type: file.type.startsWith('video') ? 'video' : 'image', name: file.name })
     e.target.value = ''
   }
   const clear = () => {
