@@ -37,7 +37,7 @@ function SitelinksField({ sitelinks, onChange }) {
 }
 
 export default function App() {
-  const [ad, setAd] = useState(DEFAULT_AD)
+  const [ad, setAd] = useState(EMPTY_AD)
   const [tab, setTab] = useState('search')
   const set = (key) => (value) => setAd((a) => ({ ...a, [key]: value }))
 
