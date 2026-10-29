@@ -34,7 +34,7 @@ function CardsField({ cards, onChange }) {
   )
 }
 
-export default function MetaSandbox({ ad, setAd, switcher }) {
+export default function MetaSandbox({ ad, setAd, switcher, share, banner }) {
   const [tab, setTab] = useState('feeds')
   const set = (key) => (value) => setAd((a) => ({ ...a, [key]: value }))
 
@@ -50,10 +50,12 @@ export default function MetaSandbox({ ad, setAd, switcher }) {
           ))}
         </nav>
         <div className="topbar-actions">
+          {share}
           <button className="btn" onClick={() => setAd(META_SAMPLE)}>Put samples</button>
           <button className="btn ghost" onClick={() => setAd(META_EMPTY)}>Clear</button>
         </div>
       </header>
+      {banner}
 
       <div className="layout">
         <aside className="editor">

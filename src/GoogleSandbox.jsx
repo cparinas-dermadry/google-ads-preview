@@ -36,7 +36,7 @@ function SitelinksField({ sitelinks, onChange }) {
   )
 }
 
-export default function GoogleSandbox({ ad, setAd, switcher }) {
+export default function GoogleSandbox({ ad, setAd, switcher, share, banner }) {
   const [tab, setTab] = useState('search')
   const set = (key) => (value) => setAd((a) => ({ ...a, [key]: value }))
 
@@ -52,10 +52,12 @@ export default function GoogleSandbox({ ad, setAd, switcher }) {
           ))}
         </nav>
         <div className="topbar-actions">
+          {share}
           <button className="btn" onClick={() => setAd(DEFAULT_AD)}>Put samples</button>
           <button className="btn ghost" onClick={() => setAd(EMPTY_AD)}>Clear</button>
         </div>
       </header>
+      {banner}
 
       <div className="layout">
         <aside className="editor">
