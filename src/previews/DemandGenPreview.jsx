@@ -1,17 +1,6 @@
 import { Logo, Media } from '../components/Fields.jsx'
 import FitBoard from '../components/FitBoard.jsx'
-
-function Phone({ label, children, dark }) {
-  return (
-    <figure className="phone-fig">
-      <div className={`phone ${dark ? 'dark' : ''}`}>
-        <div className="phone-notch" />
-        <div className="phone-screen">{children}</div>
-      </div>
-      <figcaption>{label}</figcaption>
-    </figure>
-  )
-}
+import Phone from '../components/Phone.jsx'
 
 function SkeletonVideo() {
   return (
